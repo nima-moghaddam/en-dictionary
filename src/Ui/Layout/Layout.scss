@@ -1,0 +1,18 @@
+@import "./../../styles/colors";
+
+.page-layout {
+  padding: 1rem 2rem;
+  height: 100%;
+}
+
+.light {
+  &.layout__bg-color {
+    background-color: $light_primary;
+  }
+}
+
+.dark {
+  &.layout__bg-color {
+    background-color: $dark_primary;
+  }
+}
