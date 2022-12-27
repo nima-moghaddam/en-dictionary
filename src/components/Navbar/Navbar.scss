@@ -4,11 +4,10 @@
 .navbar {
   @include center;
   justify-content: space-between;
-  
-  padding: 0 5%;
+  padding: 30px 5%;
   background-color: $light_navbar;
   color: $light_font_bright;
-  height: 100px;
+  // height: 100px;
 
   &__tag {
     @include center;
