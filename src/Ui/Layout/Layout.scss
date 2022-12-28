@@ -5,14 +5,16 @@
   height: 100%;
 }
 
-.light {
-  &.layout__bg-color {
+// theme config
+
+#light {
+  .page-layout {
     background-color: $light_primary;
   }
 }
 
-.dark {
-  &.layout__bg-color {
+#dark {
+  .page-layout {
     background-color: $dark_primary;
   }
 }

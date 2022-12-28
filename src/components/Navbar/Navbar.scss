@@ -5,9 +5,7 @@
   @include center;
   justify-content: space-between;
   padding: 30px 5%;
-  background-color: $light_navbar;
   color: $light_font_bright;
-  // height: 100px;
 
   &__tag {
     @include center;
@@ -33,14 +31,16 @@
   }
 }
 
-.light {
-  &.navbar__bg-color {
+// theme config
+
+#light {
+  .navbar {
     background-color: $light_navbar;
   }
 }
 
-.dark {
-  &.navbar__bg-color {
+#dark {
+  .navbar {
     background-color: $dark_navbar;
   }
 }

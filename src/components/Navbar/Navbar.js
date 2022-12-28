@@ -10,14 +10,13 @@ const Navbar = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
-    <header className={`navbar ${theme} navbar__bg-color`}>
+    <header className='navbar' >
       <span className="navbar__tag">
         <span className="navbar__tag-icon">
           <img src={bookSvg} alt='book' />
         </span>
         <span>English Dictionary</span>
       </span>
-      {/* <nav></nav> */}
       <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className={`navbar__toggle-btn`}>
         <motion.img  src={theme === "light" ? moonSvg : sunSvg} alt='toggle'/>
       </button>

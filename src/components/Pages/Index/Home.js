@@ -1,38 +1,53 @@
-import React from "react";
+import { useState } from "react";
 import Card from "../../../Ui/Card/Card";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { data } from "../../../data/data";
-
+import Pagination from "./../../Pagination/Pagination";
 import "./Home.scss";
 
-const fake = ["1", "asd", "213", "asdasd", "1", "asd", "213", "asdasd"];
-
 const Home = () => {
+  const [words, setWords] = useState();
+
+  const getAllWordsPerPage = (currentWords) => {
+    setWords(currentWords);
+  };
+
   return (
     <div className="home-container">
-      {fake.map((item, index) => (
-        <Link to={item}>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            // transition={{
-            //   ease: "easeOut",
-            //   duration: index === 0 ? 1.5 : index / index + 0.3,
-            // }}
-          >
+      <div>
+        {words?.map((item, index) => (
+          <Link to={item}>
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{
-                ease: "linear",
-                duration: 0.4,
-              }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              // transition={{
+              //   ease: "easeOut",
+              //   duration: index === 0 ? 1.5 : index / index + 0.3,
+              // }}
             >
-              <Card classes={"home-container__card"}>{item}</Card>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{
+                  ease: "linear",
+                  duration: 0.4,
+                }}
+              >
+                <Card classes={"home-container__card"}>{item}</Card>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
+
+      <div>
+        <Pagination
+          data={data}
+          dataPerPage={6}
+          totalData={data.length}
+          getAllWordsPerPage={getAllWordsPerPage}
+        />
+      </div>
     </div>
   );
 };

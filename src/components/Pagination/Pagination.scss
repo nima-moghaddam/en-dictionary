@@ -1,0 +1,40 @@
+@import './../../styles/colors';
+
+.pagination {
+    display: flex;
+
+    &__nav-btn {
+        background-color: transparent;
+        margin: 0 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+
+    &__list {
+        display: flex;
+        list-style-type: none;
+
+        &-btn{
+            border: 1px solid black;
+            padding: 0.5rem 1rem;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+.light {
+    &.pagination__theme {
+      border: 1px solid $light_card_border;
+      color: $light_font;
+    }
+  }
+  
+  .dark {
+    &.card__theme {
+      border: 1px solid $dark_card_border;
+      color: $dark_font_bright;
+    }
+  }
+  
