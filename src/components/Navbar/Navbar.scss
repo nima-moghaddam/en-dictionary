@@ -18,17 +18,37 @@
     }
   }
 
-  &__toggle-btn {
-    background-color: transparent;
-    border: 1px solid $light_card_border;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    opacity: 0.85;
-
-    &:hover {
-      opacity: 1;
-    }
+  &__toggle-icon {
+    scale: 0.7;
   }
+}
+
+// react toggle css configure
+
+.react-toggle-track-check,
+.react-toggle-track-x {
+  @include center;
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  border-color: white !important;
+}
+.react-toggle--focus .react-toggle-thumb {
+  -webkit-box-shadow: unset !important;
+  -moz-box-shadow: unset !important;
+  box-shadow: unset !important;
+}
+
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: unset !important;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: $light_navbar !important;
+}
+
+.react-toggle-track {
+  background-color: $dark_navbar !important;
 }
 
 // theme config
