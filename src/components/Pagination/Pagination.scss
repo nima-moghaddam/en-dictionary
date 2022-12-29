@@ -1,40 +1,89 @@
-@import './../../styles/colors';
+@import "./../../styles/colors";
 
 .pagination {
+  display: flex;
+
+  &__next-btn,
+  &__prev-btn {
+    background-color: transparent;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+
+  &__nav {
     display: flex;
+    list-style-type: none;
 
-    &__nav-btn {
-        background-color: transparent;
-        margin: 0 1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
+    &-btn {
+      padding: 0.5rem 1rem;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-
-    &__list {
-        display: flex;
-        list-style-type: none;
-
-        &-btn{
-            border: 1px solid black;
-            padding: 0.5rem 1rem;
-            margin-right: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    }
+  }
 }
 
-.light {
-    &.pagination__theme {
-      border: 1px solid $light_card_border;
-      color: $light_font;
+#light {
+  .pagination__nav-btn {
+    border: 1px solid $light_card_border;
+    color: $light_font;
+
+    &:hover {
+      border: 1px solid $bright_blue_border;
+      color: $blue_border;
+      background-color: $bright_blue_bg;
+    }
+
+    &.active {
+      border: 1px solid $bright_blue_border;
+      color: $blue_border;
+      background-color: $bright_blue_bg;
     }
   }
-  
-  .dark {
-    &.card__theme {
-      border: 1px solid $dark_card_border;
-      color: $dark_font_bright;
+
+  .pagination__prev-btn,
+  .pagination__next-btn {
+    border: 1px solid $light_card_border;
+    color: $light_font;
+
+    &:hover {
+      border: 1px solid $bright_blue_border;
+      color: $blue_border;
+      background-color: $bright_blue_bg;
     }
   }
-  
+}
+
+#dark {
+  .pagination__nav-btn,
+  .pagination__prev-btn,
+  .pagination__next-btn {
+    border: 1px solid $light_card_border;
+    color: $light_font_bright;
+
+    &:hover {
+      border: 1px solid $blue_border;
+      color: $blue_border;
+      background-color: $blue_bg;
+    }
+
+    &.active {
+      border: 1px solid $blue_border;
+      color: $blue_border;
+      background-color: $blue_bg;
+    }
+  }
+
+  .pagination__prev-btn,
+  .pagination__next-btn {
+    border: 1px solid $light_card_border;
+    color: $light_font_bright;
+
+    &:hover {
+      border: 1px solid $blue_border;
+      color: $blue_border;
+      background-color: $blue_bg;
+    }
+  }
+}

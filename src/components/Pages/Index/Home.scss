@@ -1,12 +1,50 @@
+@import './../../../styles/colors';
+
 .home-container {
   display: flex;
   flex-direction: column;
-  
+
   &__card {
     padding: 2rem 3rem;
     margin-bottom: 30px;
     cursor: pointer;
   }
+
+  &__search {
+    position: relative;
+    margin: 20px 0 40px 0.5rem;
+
+    &-input {
+      outline: none;
+      border-radius: 5px;
+      padding: 1rem 3rem;
+      width: 50%;
+      
+    }
+    &-icon {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.8rem;
+    }
+  }
 }
 
+#light {
+  .home-container__search-input {
+    border: 1px solid $light_card_border;
+    &:focus {
+      border: 1px solid $bright_blue_border !important;
+    }
+  }
+}
 
+#dark {
+  .home-container__search-input {
+    border: 1px solid $dark_card_border;
+    background-color: $dark_card;
+    color: $dark_font_bright;
+    &:focus {
+      border: 1px solid $blue_border !important;
+    }
+  }
+}
