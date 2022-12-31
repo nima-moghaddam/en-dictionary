@@ -8,28 +8,34 @@ import './../../../assets/images/search.svg'
 import "./Home.scss";
 import SearchSvg from './../../../Ui/Icons/SearchSvg';
 import { ThemeContext } from './../../../context/ThemeContext';
+import Button from './../../../Ui/Button/Button';
 
 const Home = () => {
-  const [words, setWords] = useState();
-  const [searchValue, setSearchValue] = useState('');
+  const [search, setSearch] = useState('')
+  const [words, setWords] = useState([])
+  const [filteredWords, setFilteredWords] = useState([])
 
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
+  
 
   const getAllWordsPerPage = (currentWords) => {
-    setWords(currentWords);
+    setWords(currentWords)
+    setSearch('')
   };
 
-  const handleSearchChange = (e) => {
-    setSearchValue(e.target.value)
-    console.log(searchValue);
+  const filterResults = () => {
+    const results = data.filter(word => word.toLocaleLowerCase().includes(search.toLowerCase()))
+    setFilteredWords(results)
   };
+
 
   return (
     <div className="home-container">
+
       <div className="home-container__search">
         <input
-          onChange={handleSearchChange}
-          value={searchValue}
+          onChange={(e)=>{setSearch(e.target.value)}}
+          value={search}
           className="home-container__search-input"
           type='search'
           placeholder="Search your word ..."
@@ -37,41 +43,37 @@ const Home = () => {
         <span className="home-container__search-icon">
           <SearchSvg color={theme === 'light' ? '#86827f' : '#fffbf5'} />
         </span>
+        <Button name={'Search'} classes={'home-container__search-btn'} onClickHandler={filterResults} />
+        <Button name={'Reset'} classes={'home-container__search-btn'} onClickHandler={()=>{setSearch('')}} />
       </div>
 
-      <div>
-        {words?.map((item, index) => (
-          <Link to={item}>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              // transition={{
-              //   ease: "easeOut",
-              //   duration: index === 0 ? 1.5 : index / index + 0.3,
-              // }}
-            >
+      <div className="home-container__words">
+        {(search === '' ?  words : filteredWords).map((item, index) => (
+            <Link to={item} key={index}>
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{
-                  ease: "linear",
-                  duration: 0.4,
-                }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
               >
-                <Card classes={"home-container__card"}>{item}</Card>
+                <motion.div
+                  whileHover={{ scale: 1.01 }}
+                  transition={{
+                    ease: "linear",
+                    duration: 0.3,
+                  }}
+                >
+                  <Card classes={"home-container__words-card"}>{item}</Card>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </Link>
-        ))}
+            </Link>
+          ))}
       </div>
-
-      <div>
+        
         <Pagination
           data={data}
           dataPerPage={5}
           totalData={data.length}
           getAllWordsPerPage={getAllWordsPerPage}
         />
-      </div>
     </div>
   );
 };

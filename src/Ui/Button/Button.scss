@@ -1,0 +1,36 @@
+@import "./../../styles/colors";
+
+.button-ui {
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-weight: bold;
+}
+
+// theme config
+
+#light {
+  .button-ui {
+    border: 1px solid $bright_blue_border;
+    color: $blue_border;
+    background-color: transparent;
+
+    &:hover {
+      border: 1px solid $bright_blue_border;
+      background-color: $bright_blue_bg;
+      color: $blue_bg;
+    }
+  }
+}
+
+#dark {
+  .button-ui {
+    border: 1px solid $blue_border;
+    color: $blue_border;
+    background-color: transparent;
+
+    &:hover {
+      border: 1px solid $blue_border;
+      background-color: $blue_bg;;
+    }
+  }
+}

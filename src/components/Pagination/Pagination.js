@@ -24,7 +24,6 @@ const Pagination = ({
 
 
   useEffect(() => {
-
     let tempNumberOfPages = [...arrOfCurrButtons]
 
     let dotsInitial = '...'
