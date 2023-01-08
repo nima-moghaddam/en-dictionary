@@ -3,7 +3,6 @@ import { ThemeContext } from "../../context/ThemeContext";
 import moonSvg from "./../../assets/images/moon.svg";
 import sunSvg from "./../../assets/images/sun.svg";
 import bookSvg from "./../../assets/images/book.svg"
-import { motion } from 'framer-motion';
 import Toggle from 'react-toggle'
 import "./Navbar.scss";
 import "react-toggle/style.css"
@@ -30,9 +29,6 @@ const Navbar = () => {
           }}
         />       
       </label>
-      {/* <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className={`navbar__toggle-btn`}>
-        <motion.img  src={theme === "light" ? moonSvg : sunSvg} alt='toggle'/>
-      </button> */}
     </header>
   );
 };

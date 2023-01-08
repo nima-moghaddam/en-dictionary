@@ -3,3 +3,13 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin media($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+$medium: 1300px;
+$small: 700px;
+$xsmall: 450px;

@@ -1,36 +1,72 @@
 @import "./../../../styles/colors";
+@import "./../../../styles/mixins";
 
 .home-container {
   display: flex;
   flex-direction: column;
 
-  &__words {
-    height: 600px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin-bottom: 20px;
-    &::-webkit-scrollbar {
-      display: none; 
-    }
-    scrollbar-width: none; 
+  &__content {
+    display: flex;
 
-    &-card {
-      padding: 2rem 3rem;
-      margin-bottom: 30px;
-      margin-left: 2rem;
-      cursor: pointer;
+    &-img {
+      @include center;
+      width: 50%;
+      @include media($medium) {
+        width: 0;
+      }
+      img {
+        width: 600px;
+        @include media($medium) {
+          display: none;
+        }
+      }
+    }
+
+    &-words {
+      width: 50%;
+      height: 600px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      margin-bottom: 20px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      scrollbar-width: none;
+      @include media($medium) {
+        width: 100%;
+      }
+
+      &-card {
+        padding: 1.5rem 3rem;
+        margin-bottom: 30px;
+        margin-left: 2rem;
+        cursor: pointer;
+        @include media($medium) {
+          margin-left: 1rem;
+        }
+      }
     }
   }
 
   &__search {
+    display: flex;
     position: relative;
     margin: 20px 0 40px 0.5rem;
+    @include media($medium) {
+      margin-left: 1rem;
+    }
+    @include media($small) {
+      flex-direction: column;
+    }
 
     &-input {
       outline: none;
       border-radius: 5px;
       padding: 1rem 3rem;
       width: 50%;
+      @include media($small) {
+        width: 100%;
+      }
     }
     &-icon {
       position: absolute;
@@ -38,7 +74,16 @@
       top: 0.8rem;
     }
     &-btn {
-      margin-left: 1rem;
+      margin-left: 0.5rem;
+      &.reset {
+        @include media($small) {
+          margin-left: 1rem;
+        }
+      }
+      @include media($small) {
+        margin-left: unset;
+        margin-top: 10px;
+      }
     }
   }
 }

@@ -1,0 +1,57 @@
+@import "./../../../styles/colors";
+@import "./../../../styles/mixins";
+
+.definition-container {
+  padding: 2rem 2rem;
+  min-height: 50vh;
+  position: relative;
+
+  &__loading {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+  }
+
+  &__back-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  &__word-list {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      margin-bottom: 40px;
+
+      &--header {
+        margin-bottom: 10px;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+      }
+
+      &--speech {
+        span:nth-child(1) {
+          margin-right: 10px;
+        }
+      }
+
+      &--meaning {
+        padding-left: 1rem;
+        
+        h3 {
+          color: $blue_border;
+          margin: 10px 0;
+        }
+        div {
+          padding-left: 1rem;
+        }
+      }
+
+      hr {
+        margin-top: 10px;
+      }
+    }
+  }
+}
